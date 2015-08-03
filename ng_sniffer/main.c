@@ -25,8 +25,6 @@
 #include "hwtimer.h"
 #include "shell.h"
 #include "shell_commands.h"
-#include "posix_io.h"
-#include "board_uart0.h"
 #include "net/ng_netbase.h"
 
 /**
@@ -111,8 +109,7 @@ int main(void)
 
     /* start the shell */
     puts("All ok, starting the shell now");
-    (void) posix_open(uart0_handler_pid, 0);
-    shell_init(&shell, NULL, SHELL_BUFSIZE, uart0_readc, uart0_putc);
+    shell_init(&shell, NULL, SHELL_BUFSIZE, getchar, putchar);
     shell_run(&shell);
 
     return 0;

@@ -10,7 +10,7 @@ RIOTBASE ?= $(CURDIR)/../../RIOT
 # Define modules that are used
 USEMODULE += ng_netif_default
 USEMODULE += auto_init_ng_netif
-USEMODULE += uart0
+USEMODULE += uart_stdio
 USEMODULE += shell
 USEMODULE += shell_commands
 USEMODULE += ps
